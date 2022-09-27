@@ -23,8 +23,15 @@ namespace CalcClassBr.Tests
             string expected = Convert.ToString(TestContext.DataRow["expected"]);
 
             //Act
-            string result = Convert.ToString(CalcClass.Add(expression_1, expression_2));
-            if (CalcClass.lastError != "") result = CalcClass.lastError;
+            string result;
+            try
+            {
+                result = Convert.ToString(CalcClass.Add(expression_1, expression_2));
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                result = ex.ParamName;
+            }
 
             Assert.AreEqual(expected, result);
         }

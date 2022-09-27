@@ -24,8 +24,7 @@ namespace CalcClassBr
             else
             {
                 _lastError = ErrorsExpression.ERROR_06;
-                return 0;
-            //throw new ArgumentOutOfRangeException(_lastError);
+                throw new ArgumentOutOfRangeException(_lastError);
             }
 
             if ((res <= int.MaxValue && res >= int.MinValue))
@@ -33,8 +32,7 @@ namespace CalcClassBr
             else
             {
                 _lastError = ErrorsExpression.ERROR_06;
-                //throw new ArgumentOutOfRangeException(_lastError);
-                return 0;
+                throw new ArgumentOutOfRangeException(_lastError);
             }
         }
         /// <summary> 
